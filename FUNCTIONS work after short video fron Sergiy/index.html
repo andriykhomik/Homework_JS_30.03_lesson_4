@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sergLessons</title>
+    <style>
+
+        /**{*/
+        /*    margin: 0;*/
+        /*    padding: 0;*/
+        /*}*/
+
+    </style>
+</head>
+<body>
+
+
+<script>
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    function appender(type, content) {                          //js function what for
+        let element = document.createElement(type);
+        element.innerText = content;
+        document.body.appendChild(element);
+    }
+
+appender('div', 'Hello World');
+
+appender('h1', 'My name is ANDRIY');
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+let s = 'My name is Andrii. My age twenty seven years!';                               //  js strings functions
+
+let indexOf = s.indexOf('a');                          // повертає значення індекса літери "а" яка є першою в рядку
+console.log(indexOf);
+
+let lastIndexOf = s.lastIndexOf('A');          //повертає значення індекса літери "а" яка є останнью в рядку. Але якщо зазначено що літера велика то покаже індек лише великої літери і якщо маленька то маленької
+console.log(lastIndexOf);
+
+let charAt = s.charAt(5);          //повертає літеру, яка є під вказаним індексом
+console.log(charAt);
+
+let replace = s.replace('i', 'mmm');         //змінює вказану літеру в першій частині виразу, що є в дужках на другу частину в дужках. Працює тільки з першим входженням
+console.log(replace);
+
+let replace1 = s.replace(/n/g, 'mmm');     //змінить всі літери "n" на "mmm" (регулярний вираз)
+console.log(replace1);
+
+let slice = s.slice(3, 9);     //витягує всі елементи в проміжку від третьго до девятого елементу
+console.log(slice);
+
+let split = s.split(' ');    //робить маси з елементів розділених знаком в дужках в лапках. В даному випадку в мене в лапках пробіл і масив складається з десяти обєктів які є в мене в змінній s записані як стрінга.
+console.log(split);
+
+let toUpperCase = s.toUpperCase();    //перетводить мою стрінгу у верхній регістр. Тобто всі літери будуть великими
+console.log(toUpperCase);
+
+let toLowerCase = s.toLowerCase();               //перетворить мою стрінгу в нижній регіст
+console.log(toLowerCase);
+let toLowerCase1 = toUpperCase.toLowerCase();     ////перетворить мою стрінгу в нижній регіст
+console.log(toLowerCase1);
+
+let startsWith = s.startsWith('My');        //якщо значення в дужках в лапках відповідає значенню стрічки на ПОЧАТКУ стрінги, то повернеться true . Якщо не відповідає то повернеться false!
+console.log(startsWith);
+
+let endsWith = s.endsWith('rs!');      //якщо значення в дужках в лапках відповідає значенню стрічки в КІНЦІ стрінги, то повернеться true . Якщо не відповідає то повернеться false!
+console.log(endsWith);
+
+let includes = s.includes('y n');     //якщо набір символів в дужках в лапках відповідає значенню стрічки в БУДЬ ЯКОМУ МІСЦІ стрінги, то повернеться true . Якщо не відповідає то повернеться false!
+console.log(includes);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function squarePerimeter(a, b){                // js function declaration
+    let result = (a + b) * 2;
+    console.log(result);
+}
+squarePerimeter(10, 20);            // функція, яка описує параметер чотирикутника. Я можу задати в дужках різні
+squarePerimeter(15, 20);            // значення сторін "а" і "b" і кожного разу я отримаю відповідь
+squarePerimeter(32, 220);           // згідно заданих параметрів. Але результат я отримаю як виведення в консоль.
+squarePerimeter(150, 230);          // Все, що є в середині в функції я використати ззовні не зможу.
+squarePerimeter(1000, 2540);        // Зараз функція result є локальною функцією.
+let d = 5;
+let v = 8;
+squarePerimeter(d, v);
+
+    
+function squarePerimeterReturn(a, b) {
+    let resultReturn = (a + b) * 2;
+    console.log(resultReturn);
+    return resultReturn;              // дозволяє використати мій результат за межами функціїї (return)
+}
+
+let perimeterReturn = squarePerimeterReturn(20, 30);  //використаний результат за межами функції
+console.log(perimeterReturn);
+
+let x = 100;
+let y = 220;
+let return1 = squarePerimeterReturn(x, y);   //передача даних функції через оболонки
+console.log(return1);
+
+function  addTwoNumbers(a, b) {
+    return a + b;
+}
+
+
+function perimeterThee(a, b) {
+   return addTwoNumbers(a, b) * 2;
+}
+console.log(perimeterThee(25, 18));
+
+
+function calculate(a, b, action) {
+    if (action === '+') {
+        return addTwoNumbers(a, b);
+    } else if (action === '-') {
+        return a - b;
+    }
+}
+console.log(calculate(300, 551, '+'));
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                        //js arrow functions
+// let x = function () {                // function expression - переміщення функції в змінну. Такі функції є анонімними без назви. Функцію викликають за допомогою назви змінної. Тоді з функцією процедура підняття в гору не відбудеться(хойстінг). Такі функції можна замінити на стрілочні функції.
+
+// };
+// x();
+
+let arrow = () => {};          // arrow function -  стрілочна функція
+let calculator = (a, b) => {console.log(a + b);};
+calculator(55, 77);
+let calculator2 = (a, b) => {return a + b;};  //ретюрн означає, що нам повернеться результат і ним можна буде зкористатись
+let calculator3 = (a, b) => { a + b;};        // в функціях де є одна єдина дія ретюрн прописаний за замовчуванням
+let calculator4 = (a, b) => a + b;            // в функціях де є одна єдина дія ретюрн прописаний за замовчуванням і фігурні дужки не обовязково використовувати
+
+let calculator5 = (a, b) => {                 // в функціях де є більше ніж одна дія ретюрн необхідно прописати. І функція буде мати подібний вигляд.
+    let result = a + b;
+    console.log(result);
+    return result;
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                        //js function arguments
+function calculator8(a, b, c) {
+
+    console.log(arguments);   // аргументи функції виведуться в консоль у вигляді масиву
+}
+calculator8(15, 8, 55);
+
+function calculator9() {       // якщо аргументів в дужках немає то в консолі я отримаю масив зі значеннями які я задам
+    console.log(arguments);
+}
+calculator9(8, 55, 7, 4, 66, 9, 10);
+
+
+function calculator10() {
+    console.log(arguments);
+    let sum = 0;
+    for (const argument of arguments) {       //прогнав через цикл фороф аргументи і вклав значення в argument
+        sum += argument;                      // сказа, що sum буде дорівнювати своєму значинню плюс значення свого аргумента
+    }
+    console.log(sum);                         // виводжу результат
+    return sum;                               // повертаю результат
+}
+calculator10(50, 55, 88, 99, 66, 21, 103);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                     // js primitives and refs
+    let a = 0;                   // змінна "а" - це примітивне значення. Примітивні типи даних просто дублюють значення. Вони не дають керування над своїм значенням.
+    function increment(x) {
+        x++;
+    }
+    increment(a);
+console.log(a);                 // результат "0"
+/////
+    let b = {i: 0};
+    function refIncrement(x) {           // ссилочний тип даних
+        x.i++;
+    }
+    refIncrement(b);
+console.log(b);               // результам буде {i: 1}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                       // js recursion
+    // function recursion(i) {
+    //     console.log(i);               // відбудеться рекурсія бо значення завжди буде збільшуватись на одиницю і не зможе вийти з функції
+    //     i++;
+    //     recursion(i)
+    // }
+    // recursion(0);
+
+let user = {
+    name: 'Vasja',
+    age: 25,
+    address: {
+        street: 'Zelena',
+        number: 156,
+        home: {size: 'big',
+            color: 'green',
+            floor: {one: 'big',
+                two: {
+                    rooms: {
+                        first: 'red',
+                        second: 'blue',
+                        third: {
+                            size: 'small',
+                            color: ['violet', 'green', 'yellow']
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
+
+function exploreUser(user) {
+    for (const userKey in user) {
+        if (typeof user[userKey] == 'object') {
+            console.log(user[userKey]);
+            exploreUser(user[userKey]);
+        }
+    }
+}
+exploreUser(user);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                          // js self invoke (самовикликаюча функція)
+(function (msg) {
+    console.log('self invoke ' + msg);
+})('hello')                               // зазвичай використовують з бібліотекою jQuery 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
